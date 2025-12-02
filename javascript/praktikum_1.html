@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi Nilai Angka ke Huruf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #hasil {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Konversi Nilai Angka ke Huruf</h2>
+
+    <p>Masukkan nilai angka (0 - 100):</p>
+    <input type="number" id="nilaiAngka" min="0" max="100" placeholder="Contoh: 75">
+    <button onclick="konversiNilai()">Konversi</button>
+
+    <div id="hasil"></div>
+    
+    <hr>
+    
+    <h3>Skema Konversi:</h3>
+    <ul>
+        <li>81 - 100 = **A**</li>
+        <li>71 - 80 = **AB**</li>
+        <li>66 - 70 = **B**</li>
+        <li>61 - 65 = **BC**</li>
+        <li>56 - 60 = **C**</li>
+        <li>41 - 55 = **D**</li>
+        <li>0 - 40 = **E**</li>
+    </ul>
+
+</div>
+
+<script>
+    function konversiNilai() {
+        // 1. Ambil nilai dari input dan konversi ke angka
+        const nilaiAngka = parseInt(document.getElementById('nilaiAngka').value);
+        let nilaiHuruf = "";
+        
+        // 2. Lakukan validasi input
+        if (isNaN(nilaiAngka) || nilaiAngka < 0 || nilaiAngka > 100) {
+            document.getElementById('hasil').innerHTML = "Masukkan nilai antara **0 hingga 100** yang valid.";
+            return; // Hentikan fungsi jika input tidak valid
+        }
+
+        // 3. Logika Konversi menggunakan if...else if...else
+        if (nilaiAngka >= 81 && nilaiAngka <= 100) {
+            nilaiHuruf = "A";
+        } else if (nilaiAngka >= 71 && nilaiAngka <= 80) {
+            nilaiHuruf = "AB";
+        } else if (nilaiAngka >= 66 && nilaiAngka <= 70) {
+            nilaiHuruf = "B";
+        } else if (nilaiAngka >= 61 && nilaiAngka <= 65) {
+            nilaiHuruf = "BC";
+        } else if (nilaiAngka >= 56 && nilaiAngka <= 60) {
+            nilaiHuruf = "C";
+        } else if (nilaiAngka >= 41 && nilaiAngka <= 55) {
+            nilaiHuruf = "D";
+        } else { // Meliputi nilai 0 hingga 40
+            nilaiHuruf = "E";
+        }
+
+        // 4. Tampilkan hasilnya
+        document.getElementById('hasil').innerHTML = `Nilai Angka Anda adalah **${nilaiAngka}**, setara dengan Nilai Huruf **${nilaiHuruf}**`;
+    }
+</script>
+
+</body>
+</html>
