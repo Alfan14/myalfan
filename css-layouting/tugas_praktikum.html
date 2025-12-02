@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas Praktikum CSS: Web Portofolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            /* Menggunakan beberapa properti dari Praktikum 1 untuk judul */
+            letter-spacing: 2px;
+        }
+        
+        .kotak-konten {
+            background-color: #ffffff;
+            color: #333;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            /* Menggunakan border-radius dari Praktikum 1 */
+            border-radius: 10px; 
+            overflow: hidden; /* Clear float di dalamnya */
+        }
+
+        #nav {
+            line-height: 30px;
+            background-color: #eeeeee;
+            height: auto; /* Dibuat fleksibel */
+            width: 150px;
+            float: left;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+        }
+
+        #section {
+            width: auto;
+            margin-left: 170px; 
+            padding: 10px;
+        }
+
+        .menu-bar button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .riwayat-kotak {
+            width: 80px;
+            height: 80px;
+            background-color: #777;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+            margin: 5px;
+            float: left;
+            border: 2px solid #aaa;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #footer {
+            background-color: black;
+            color: white;
+            clear: both; /* Penting untuk mengakhiri float */
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>WEB PORTOFOLIO KU</h1>
+    <div class="menu-bar">
+        <button>HOME</button>
+        <button>PROFIL</button>
+        <button>CONTACT</button>
+    </div>
+</div>
+
+<div class="kotak-konten">
+    
+    <div id="nav">
+        Madiun<br>
+        Magetan<br>
+        Ponorogo<br>
+        </div>
+
+    <div id="section">
+        <h2>TENTANG KU</h2>
+        
+        <div style="margin-bottom: 20px;">
+            <div class="riwayat-kotak">SD</div>
+            <div class="riwayat-kotak">SMP</div>
+            <div class="riwayat-kotak">SMA</div>
+            <div class="riwayat-kotak">S1</div>
+        </div>
+        
+        <div style="clear:both;"></div> <p>Kisah Sekolahku: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        
+        <h3>Ponorogo (Contoh Konten)</h3>
+        <p>Ponorogo adalah kota yang mempunyai budaya yang cukup kuat, yaitu budaya reog.</p>
+        <p>Siapa ingin berkunjung ke Ponorogo dijamin akan puas berwisata kuliner yaitu mencoba sate Ponorogo dan dawet Jabung.</p>
+        
+    </div>
+</div> <div id="footer">
+    Info lebih lanjut kunjungi www.kuliner.jatim
+</div>
+
+</body>
+</html>
