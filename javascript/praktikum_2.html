@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kalkulator Sederhana (Native)</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .kalkulator {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Gaya untuk Input Text Box */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-group input[type="number"],
+        .input-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #hasil {
+            background-color: #e0f7fa;
+            font-weight: bold;
+            color: #00796b;
+            text-align: right;
+            font-size: 1.2em;
+        }
+
+        .tombol-operasi {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 kolom sama besar */
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tombol-operasi button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        .tombol-operasi button:nth-child(1) { background-color: #4CAF50; } /* + */
+        .tombol-operasi button:nth-child(2) { background-color: #FF9800; } /* - */
+        .tombol-operasi button:nth-child(3) { background-color: #F44336; } /* x */
+        .tombol-operasi button:nth-child(4) { background-color: #2196F3; } /* / */
+
+        .tombol-operasi button:hover {
+            opacity: 0.9;
+        }
+
+        .info-modifikasi {
+            margin-top: 20px;
+            font-size: 0.75em;
+            color: #777;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="kalkulator">
+    <h1>Kalkulator Sederhana</h1>
+
+    <div class="input-group">
+        <label for="bil1">Bilangan 1 (Bil 1)</label>
+        <!-- Nilai default 0 untuk memastikan input numerik -->
+        <input type="number" id="bil1" value="0" placeholder="Masukkan angka pertama">
+    </div>
+
+    <div class="input-group">
+        <label for="bil2">Bilangan 2 (Bil 2)</label>
+        <input type="number" id="bil2" value="0" placeholder="Masukkan angka kedua">
+    </div>
+    
+    <div class="input-group">
+        <label for="hasil">Hasil</label>
+        <!-- Hasil selalu read-only (hanya bisa dibaca) -->
+        <input type="text" id="hasil" value="0" readonly>
+    </div>
+
+    <div class="tombol-operasi">
+        <button onclick="hitung('+')">+</button>
+        <button onclick="hitung('-')">-</button>
+        <button onclick="hitung('*')">x</button>
+        <button onclick="hitung('/')">/</button>
+    </div>
+
+    <!-- Bagian Modifikasi Terakhir (dari referensi skrip Anda) -->
+    <div class="info-modifikasi">
+        <script>
+            document.write("Dimodifikasi terakhir pada " + document.lastModified);
+        </script>
+    </div>
+</div>
+
+<script>
+    function hitung(operator) {
+        // Ambil nilai dari input Bil 1 dan Bil 2
+        // Gunakan .value
+        const bil1Input = document.getElementById('bil1').value;
+        const bil2Input = document.getElementById('bil2').value;
+        const hasilElement = document.getElementById('hasil');
+
+        // Konversi string input menjadi angka (float untuk mendukung desimal)
+        const bil1 = parseFloat(bil1Input);
+        const bil2 = parseFloat(bil2Input);
+
+        let hasil = 0;
+
+        // 1. Validasi Input
+        if (isNaN(bil1) || isNaN(bil2)) {
+            hasilElement.value = "Input harus angka!";
+            return;
+        }
+
+        // 2. Logika Switch Case untuk operasi aritmatika
+        switch (operator) {
+            case '+':
+                hasil = bil1 + bil2;
+                break;
+            case '-':
+                hasil = bil1 - bil2;
+                break;
+            case '*':
+                hasil = bil1 * bil2;
+                break;
+            case '/':
+                // Penanganan kasus pembagian dengan nol
+                if (bil2 === 0) {
+                    hasilElement.value = "Tidak bisa dibagi nol!";
+                    return;
+                }
+                hasil = bil1 / bil2;
+                break;
+            default:
+                hasil = "Error Operasi";
+        }
+
+        // 3. Tampilkan hasil operasi, dibulatkan hingga 4 desimal untuk kejelasan
+        // Menggunakan toLocaleString() untuk format angka
+        hasilElement.value = hasil.toLocaleString('id-ID', { maximumFractionDigits: 4 });
+    }
+</script>
+
+</body>
+</html>
