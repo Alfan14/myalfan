@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir Service Motor</title>
+</head>
+<body>
+<h2>Formulir Layanan Service Motor</h2>
+<form method="POST" action="simpan_motor.php">
+    Nama Pelanggan: 
+    <input type="text" name="nama" required><br><br>
+    Jenis Motor: 
+    <select name="jenis_motor" required>
+        <option value="">-- Pilih Jenis Motor --</option>
+        <option value="Matic">Matic</option>
+        <option value="Bebek">Bebek</option>
+        <option value="Sport">Sport</option>
+    </select><br><br>
+    Keluhan: 
+    <textarea name="keluhan" rows="4" required></textarea><br><br>
+    Tanggal Masuk: 
+    <input type="date" name="tgl_masuk" required><br><br>
+    <input type="submit" name="simpan" value="Input Service">
+</form>
+</body>
+</html>
