@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir Pendaftaran Klinik</title>
+</head>
+<body>
+<h2>Formulir Pendaftaran Klinik Sehat</h2>
+<form method="POST" action="simpan_klinik.php">
+    Nama Pasien: 
+    <input type="text" name="nama" required><br><br>
+    Umur: 
+    <input type="number" name="umur" min="1" required><br><br>
+    Keluhan Utama: 
+    <textarea name="keluhan" rows="4" required></textarea><br><br>
+    Dokter Tujuan: 
+    <input type="text" name="dokter" required><br><br>
+    <input type="submit" name="simpan" value="Daftar Pasien">
+</form>
+</body>
+</html>
